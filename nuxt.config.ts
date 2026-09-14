@@ -7,6 +7,25 @@ export default defineNuxtConfig({
     cssPath: '~/assets/css/main.css',
     configPath: 'tailwind.config.js'
   },
+  vite: {
+    plugins: [
+      {
+        name: 'ios-mp4-headers',
+        configureServer(server) {
+          server.middlewares.use((req, res, next) => {
+            const url = String((req as { url?: string }).url || '').split('?')[0] ?? ''
+            if (!url.endsWith('.mp4')) return next()
+            const setHeader = res.setHeader.bind(res)
+            res.setHeader = ((name: string, value: unknown) => {
+              if (String(name).toLowerCase() === 'etag') return res
+              return setHeader(name, value)
+            }) as typeof res.setHeader
+            next()
+          })
+        }
+      }
+    ]
+  },
   app: {
     head: {
       title: 'reversocollettivo',
