@@ -1,16 +1,24 @@
 <script setup>
 const videoEl = ref(null)
+const showPlay = ref(false)
 let stopPlaybackUnlock = () => {}
 
-function tryPlay() {
+async function tryPlay() {
   const el = videoEl.value
   if (!el) return
+
   el.muted = true
   el.defaultMuted = true
   el.playsInline = true
   el.setAttribute('playsinline', '')
   el.setAttribute('webkit-playsinline', '')
-  el.play()?.catch(() => {})
+
+  try {
+    await el.play()
+    showPlay.value = false
+  } catch {
+    showPlay.value = true
+  }
 }
 
 onMounted(() => {
@@ -22,12 +30,14 @@ onMounted(() => {
 
   tryPlay()
   el.addEventListener('canplay', tryPlay, { signal })
-  document.addEventListener('touchstart', tryPlay, { once: true, passive: true, signal })
-  document.addEventListener('click', tryPlay, { once: true, signal })
-  document.addEventListener(
-    'visibilitychange',
+  el.addEventListener('playing', () => {
+    showPlay.value = false
+  }, { signal })
+  el.addEventListener(
+    'pause',
     () => {
-      if (document.visibilityState === 'visible') tryPlay()
+      if (el.ended) return
+      showPlay.value = true
     },
     { signal }
   )
@@ -41,10 +51,11 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="relative h-dvh w-full overflow-hidden">
+  <div class="relative h-dvh w-full overflow-hidden" @click="tryPlay">
     <video
       ref="videoEl"
-      class="absolute inset-0 h-full w-full object-cover"
+      class="pointer-events-none absolute inset-0 h-full w-full object-cover"
+      src="/video/reverso_1c.mp4?v=2"
       poster="/images/reverso_1c.jpg"
       autoplay
       muted
@@ -53,9 +64,7 @@ onUnmounted(() => {
       webkit-playsinline
       preload="auto"
       disablepictureinpicture
-    >
-      <source src="/video/reverso_1c.mp4" type="video/mp4">
-    </video>
+    />
     <div class="absolute left-0 top-0 h-dvh w-full">
       <div class="flex h-full flex-col justify-between px-6 pb-4 pt-4 md:px-8 md:pb-8 md:pt-6">
         <div>
@@ -64,5 +73,12 @@ onUnmounted(() => {
         <div>publishing and production</div>
       </div>
     </div>
+    <button
+      v-if="showPlay"
+      class="absolute bottom-16 left-1/2 -translate-x-1/2 text-sm md:bottom-24"
+      type="button"
+    >
+      Play
+    </button>
   </div>
 </template>
