@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: si;
+  src: url('/fonts/SuisseIntl.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: sw;
+  src: url('/fonts/SuisseWorks.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Suisse Intl';
+  src: url('/fonts/SuisseIntl.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Suisse Works';
+  src: url('/fonts/SuisseWorks.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Unlayered so this wins over Tailwind's default Instrument Serif stack */
+.font-sans {
+  font-family: si, sans-serif;
+}
+
+.font-serif {
+  font-family: sw, serif;
+}
+
+@layer base {
+  html {
+    color: #f2f2f2;
+    background-color: #1a1a1a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: si, sans-serif;
+  }
+
+  @media (width >= 48rem) {
+    html {
+      font-size: 1.5rem;
+      line-height: calc(2 / 1.5);
+    }
+  }
+
+  h2 {
+    margin-bottom: 3rem;
+    font-size: 1.875rem;
+    line-height: 1.2;
+    text-wrap: balance;
+  }
+
+  @media (width >= 48rem) {
+    h2 {
+      margin-bottom: 6rem;
+      font-size: 2.25rem;
+      line-height: calc(2.5 / 2.25);
+    }
+  }
+
+  @media (width >= 64rem) {
+    h2 {
+      font-size: 3rem;
+      line-height: 1;
+    }
+  }
+
+  section {
+    padding-inline: 1.5rem;
+    padding-top: 3rem;
+    padding-bottom: 6rem;
+  }
+
+  @media (width >= 48rem) {
+    section {
+      padding-inline: 2rem;
+    }
+  }
+
+  @media (width >= 64rem) {
+    section {
+      min-height: 100dvh;
+      padding-top: 6rem;
+      padding-bottom: 12rem;
+    }
+  }
+}
