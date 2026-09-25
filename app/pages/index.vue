@@ -3,7 +3,6 @@
     <IntroSection />
     <AboutSection />
     <ServicesSection />
-    <PortfolioSection />
     <ClientsSection />
     <ManifestoSection />
     <AppFooter />
