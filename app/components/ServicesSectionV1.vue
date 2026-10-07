@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { services, type Project } from '~/data/services'
 
-const STRIP = '15rem'
+const SHEET_TOP = 'clamp(2.5rem, 8vh, 5rem)'
+const HEADER_H = '4rem'
+const PROJECT_TOP = `calc(${SHEET_TOP} + ${HEADER_H})`
 
 const serviceOpen = ref(false)
 const projectOpen = ref(false)
@@ -43,6 +45,8 @@ onBeforeUnmount(() => {
     window.removeEventListener('keydown', onKeydown)
     if (import.meta.client) document.body.style.overflow = ''
 })
+
+const isVideo = (src: string) => /\.(mp4|webm|mov)$/i.test(src)
 </script>
 
 <template>
@@ -68,22 +72,26 @@ onBeforeUnmount(() => {
             </li>
         </ul>
 
-        <BottomSheet v-model="serviceOpen" top="10rem" :z="50" @scroll="scrolled = $event > 8">
+        <BottomSheet v-model="serviceOpen" :top="SHEET_TOP" :z="50" @scroll="scrolled = $event > 8">
             <div v-if="service">
-                <header class="sticky top-0 z-10 flex h-16 items-center justify-between px-4 md:px-6" :class="projectOpen || scrolled
-                    ? 'bg-[#1a1a1a]'
-                    : 'bg-gradient-to-b from-black/60 to-transparent'" :style="projectOpen ? { cursor: 'pointer' } : undefined"
-                    @click="projectOpen = false">
+                <header class="sticky top-0 z-10 flex items-center justify-between px-4 md:px-6"
+                    :style="{ height: HEADER_H, cursor: projectOpen ? 'pointer' : undefined }" :class="projectOpen || scrolled
+                        ? 'bg-[#1a1a1a]'
+                        : 'bg-gradient-to-b from-black/60 to-transparent'" @click="projectOpen = false">
                     <h3 class="text-2xl md:text-4xl">
                         <span class="font-serif">{{ number }}.</span> {{ service.title }}
                     </h3>
                     <button type="button" class="font-serif" @click.stop="closeAll">close</button>
                 </header>
 
-                <img :src="service.image" :alt="service.title" class="-mt-16 h-[60vh] w-full object-cover md:h-[80vh]">
+                <video v-if="isVideo(service.image)" :src="service.image" :poster="service.poster"
+                    class="w-full object-cover" :style="{ marginTop: `calc(-1 * ${HEADER_H})`, height: '70dvh' }"
+                    autoplay muted loop playsinline />
+                <img v-else :src="service.image" :alt="service.title" class="w-full object-cover"
+                    :style="{ marginTop: `calc(-1 * ${HEADER_H})`, height: '70dvh' }">
 
-                <div class="px-4 py-12 md:px-6 md:py-20">
-                    <div class="max-w-4xl space-y-8 font-serif text-2xl leading-snug md:text-4xl">
+                <div class="px-4 py-12 md:px-6 md:py-10">
+                    <div class="max-w-4xl space-y-8 font-serif text-2xl leading-snug md:text-2xl">
                         <p v-for="(text, i) in service.paragraphs" :key="i">{{ text }}</p>
                     </div>
                 </div>
@@ -96,13 +104,13 @@ onBeforeUnmount(() => {
             </div>
         </BottomSheet>
 
-        <BottomSheet v-model="projectOpen" :top="STRIP" :z="60">
+        <BottomSheet v-model="projectOpen" :top="PROJECT_TOP" :z="60">
             <div v-if="project">
                 <header class="sticky top-0 z-10 flex items-start justify-between gap-6 bg-[#1a1a1a] px-4 py-4 md:px-6">
-                    <h3 class="text-3xl leading-none md:text-5xl">{{ project.title }}</h3>
+                    <h3 class="text-3xl leading-none md:text-3xl">{{ project.title }}</h3>
 
                     <div class="flex shrink-0 gap-8 md:gap-24">
-                        <div class="text-sm md:text-base">
+                        <div class="text-sm md:text-xs">
                             <p v-if="project.client">Client: {{ project.client }}</p>
                             <p v-if="project.year">Year: {{ project.year }}</p>
                         </div>

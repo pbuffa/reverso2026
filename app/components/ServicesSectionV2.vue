@@ -30,58 +30,15 @@ const openProject = (project: Project) => {
 
         <ul class="mt-10 grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-3">
           <li v-for="project in service.projects" :key="project.title">
-            <ProjectCard
-              :title="project.title"
-              :image="project.image"
-              @select="openProject(project)"
-            />
+            <ProjectCard :title="project.title" :image="project.image" @select="openProject(project)" />
           </li>
         </ul>
       </article>
     </div>
 
-    <ProjectModal
-      v-model="isModalOpen"
-      :title="selectedProject?.title ?? ''"
-      :client="selectedProject?.client"
-      :year="selectedProject?.year"
-    >
-      <div v-if="selectedProject">
-        <img
-          :src="selectedProject.image"
-          :alt="selectedProject.title"
-          class="h-auto w-full"
-        >
-
-        <div class="px-4 py-12 md:px-6 md:py-10">
-          <p
-            v-if="selectedProject.intro"
-            class="max-w-4xl font-serif text-2xl leading-tight md:text-3xl"
-          >
-            {{ selectedProject.intro }}
-          </p>
-
-          <div v-if="selectedProject.body?.length" class="mt-10 md:mt-10 md:grid md:grid-cols-4">
-            <div class="space-y-6 md:col-span-3 md:col-start-2">
-              <p v-for="(text, i) in selectedProject.body" :key="i">{{ text }}</p>
-            </div>
-          </div>
-        </div>
-
-        <div
-          v-if="selectedProject.gallery?.length"
-          class="columns-1 gap-4 pb-6 md:columns-2"
-        >
-          <img
-            v-for="(src, i) in selectedProject.gallery"
-            :key="i"
-            :src="src"
-            :alt="`${selectedProject.title} ${i + 1}`"
-            class="mb-4 h-auto w-full break-inside-avoid"
-            loading="lazy"
-          >
-        </div>
-      </div>
+    <ProjectModal v-model="isModalOpen" :title="selectedProject?.title ?? ''" :client="selectedProject?.client"
+      :year="selectedProject?.year">
+      <ProjectDetail v-if="selectedProject" :project="selectedProject" />
     </ProjectModal>
   </section>
 </template>
