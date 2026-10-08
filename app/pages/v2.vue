@@ -4,11 +4,12 @@ useHead({ meta: [{ name: 'robots', content: 'noindex' }] })
 
 <template>
   <div>
+    <SiteHeaderV2 />
     <IntroSection />
-    <AboutSection />
-    <ServicesSectionV2 />
-    <ClientsSection />
-    <ManifestoSection />
+    <div data-section data-label="About"><AboutSection /></div>
+    <div data-section data-label="What we do"><ServicesSectionV2 /></div>
+    <div data-section data-label="Clients"><ClientsSection /></div>
+    <div data-section data-label="Manifesto"><ManifestoSection /></div>
     <AppFooter />
   </div>
 </template>

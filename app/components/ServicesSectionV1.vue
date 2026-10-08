@@ -55,9 +55,9 @@ const isVideo = (src: string) => /\.(mp4|webm|mov)$/i.test(src)
             <h2>What We Do</h2>
         </div>
 
-        <ul class="mt-16 flex flex-col items-start gap-12 md:mt-40 md:grid md:grid-cols-3 md:gap-4">
-            <li v-for="(s, i) in services" :key="s.title" data-aos="fade-in">
-                <h3 class="text-2xl lg:text-4xl">
+        <ul class="mt-16 flex flex-col items-start gap-12 md:mt-40 md:grid md:grid-cols-3 md:items-stretch md:gap-4">
+            <li v-for="(s, i) in services" :key="s.title" class="flex flex-col" data-aos="fade-in">
+                <h3 class="text-2xl lg:text-3xl">
                     <span class="font-serif">{{ String(i + 1).padStart(2, '0') }}.</span>
                     {{ s.title }}
                 </h3>
@@ -66,8 +66,13 @@ const isVideo = (src: string) => /\.(mp4|webm|mov)$/i.test(src)
                     <p v-for="(text, j) in s.paragraphs" :key="j">{{ text }}</p>
                 </div>
 
-                <button type="button" class="mt-6 uppercase underline" @click="openService(i)">
-                    See projects
+                <button type="button" class="group mt-auto flex items-center gap-2 self-start pt-6 uppercase"
+                    @click="openService(i)">
+                    <span
+                        class="underline underline-offset-4 decoration-1 transition-all duration-300 group-hover:underline-offset-8">
+                        {{ s.cta }}
+                    </span>
+                    <span class="inline-block transition-transform duration-300 group-hover:translate-x-1.5">→</span>
                 </button>
             </li>
         </ul>
@@ -85,10 +90,10 @@ const isVideo = (src: string) => /\.(mp4|webm|mov)$/i.test(src)
                 </header>
 
                 <video v-if="isVideo(service.image)" :src="service.image" :poster="service.poster"
-                    class="w-full object-cover" :style="{ marginTop: `calc(-1 * ${HEADER_H})`, height: '70dvh' }"
+                    class="aspect-video w-full object-cover"  :style="{ marginTop: `calc(-1 * ${HEADER_H})` }"
                     autoplay muted loop playsinline />
-                <img v-else :src="service.image" :alt="service.title" class="w-full object-cover"
-                    :style="{ marginTop: `calc(-1 * ${HEADER_H})`, height: '70dvh' }">
+                <img v-else :src="service.image" :alt="service.title" class=" aspect-video w-full object-cover"
+                     :style="{ marginTop: `calc(-1 * ${HEADER_H})` }">
 
                 <div class="px-4 py-12 md:px-6 md:py-10">
                     <div class="max-w-4xl space-y-8 font-serif text-2xl leading-snug md:text-2xl">
