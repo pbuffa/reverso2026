@@ -6,13 +6,15 @@ const props = defineProps<{ project: Project }>()
 const items = computed(() =>
   (props.project.gallery ?? []).map((g) => (typeof g === 'string' ? { src: g } : g))
 )
+const videoFailed = ref(false)
 </script>
 
 <template>
   <div>
-    <video v-if="project.video" :src="project.video" :poster="project.image"
-      class="h-auto w-full object-cover md:h-auto" autoplay muted loop playsinline />
-    <img v-else :src="project.image" :alt="project.title" class="h-auto w-full object-cover md:h-auto">
+    <video v-if="project.video && !videoFailed" :src="project.video" :poster="project.image"
+      class="aspect-[4/3] w-full object-cover" autoplay muted loop playsinline @error="videoFailed = true" />
+    <NuxtImg v-else :src="project.image" :alt="project.title" width="1600" densities="x1"
+      class="aspect-[4/3] w-full object-cover" />
 
     <div class="px-4 py-12 md:px-6 md:py-10">
       <p v-if="project.intro" class="max-w-3xl font-serif text-3xl leading-tight md:text-2xl">
@@ -27,8 +29,9 @@ const items = computed(() =>
     </div>
 
     <div v-if="items.length" class="grid grid-cols-1 gap-2 pb-6 md:grid-cols-2">
-      <img v-for="(it, i) in items" :key="i" :src="it.src" :alt="`${project.title} ${i + 1}`"
-        class="aspect-[4/3] w-full object-cover" :class="it.wide && 'md:col-span-2'" loading="lazy">
+      <NuxtImg v-for="(it, i) in items" :key="i" :src="it.src" :alt="`${project.title} ${i + 1}`"
+        :width="it.wide ? 1600 : 1000" densities="x1" class="aspect-[4/3] w-full object-cover"
+        :class="it.wide && 'md:col-span-2 md:aspect-[21/9]'" loading="lazy" />
     </div>
   </div>
 </template>

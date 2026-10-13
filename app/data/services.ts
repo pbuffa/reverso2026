@@ -219,14 +219,14 @@ export const services: Service[] = [
     projects: [
       {
         title: "VDnews",
-        image: "/images/01_vd_mockup01.png",
+        image: cover,
         intro: "VD is a digital media platform dedicated to the production of original stories, ranging from social reportage to lifestyle content.",
         body: [
           "Reversocollettivo oversaw the editorial direction of the project, from the brand launch phase to the definition and management of the editorial line throughout the entire production process.",
           "The work covered both original journalistic production and the development of branded content, ensuring editorial and narrative consistency across different formats and content."
         ],
         gallery: [
-          { src: "/images/01_vd_mockup02.png", wide: true }
+          //{ src: "/images/01_vd_mockup02.png", wide: true }
         ]
       },
       {
