@@ -55,8 +55,8 @@ onUnmounted(() => {
     <video
       ref="videoEl"
       class="pointer-events-none absolute inset-0 h-full w-full object-cover"
-      src="/video/reverso_1c.mp4?v=2"
-      poster="/images/reverso_1c.jpg"
+      src="/video/reverso26.mp4?v=2"
+      poster="/images/reverso26.jpg"
       autoplay
       muted
       loop
