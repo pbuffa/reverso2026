@@ -27,8 +27,7 @@ export const services: Service[] = [
     title: "Production",
     cta: 'See productions',
     paragraphs: [
-      "We create journalistic and documentary content for media, brands and institutions. ",
-      "Our productions combine a strong focus on production quality with significant authorial experience.",
+      "We create journalistic and documentary content for media, brands and institutions. Our productions combine a strong focus on production quality with significant authorial experience.",
       "We bring a multidisciplinary approach across different media and follow each project through all its stages: from conception and development to production."
     ],
     projects: [

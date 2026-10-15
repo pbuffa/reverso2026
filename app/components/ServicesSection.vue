@@ -62,10 +62,10 @@ const isVideo = (src: string) => /\.(mp4|webm|mov)$/i.test(src)
                 </h3>
 
                 <div class="mt-6 space-y-2 text-pretty">
-                    <p v-for="(text, j) in s.paragraphs" :key="j">{{ text }}</p>
+                    <p class="mt-6 text-pretty">{{ s.paragraphs[0] }}</p>
                 </div>
 
-                <button type="button" class="group flex items-center gap-2 self-start pt-6 uppercase"
+                <button type="button" class="group flex items-center gap-2 self-start pt-6 text-sm uppercase"
                     @click="openService(i)">
                     <span
                         class="underline underline-offset-4 decoration-1 transition-all duration-300 group-hover:underline-offset-8">
