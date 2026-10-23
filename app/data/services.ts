@@ -248,7 +248,9 @@ export const services: Service[] = [
           "Beyond rethinking the visual identity, the main work involved imagining a new content flow with a strong editorial drive, bringing together food storytelling with lifestyle narratives and the documentation of current affairs and contemporary phenomena related to the media platform’s area of focus."
         ],
         gallery: [
-          { src: "/images/03_cinc_mockup02.png", wide: true }
+          { src: "/images/03_cinc_frame01.png", wide: true },
+          "/images/03_cinc_frame02.png",
+          "/images/03_cinc_frame03.png"
         ]
       },
       {
