@@ -54,8 +54,8 @@ const videoFailed = ref(false)
         :alt="`${project.title} ${i + 1}`"
         :width="it.wide ? 1600 : 1000"
         densities="x1"
-        class="aspect-[4/3] w-full object-cover"
-        :class="it.wide && 'md:col-span-2 md:aspect-[21/9]'"
+        class="aspect-[16/9] w-full object-cover"
+        :class="it.wide && 'md:col-span-2 md:aspect-[16/9]'"
         loading="lazy"
       />
     </div>
