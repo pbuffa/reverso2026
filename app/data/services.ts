@@ -55,6 +55,7 @@ export const services: Service[] = [
       {
         title: "Rai Report",
         image: "/images/02_report__heroimg.jpg",
+        video: "/video/herovid_Report_web.mp4", 
         client: 'Report (Rai)',
         intro: "For Report, a programme broadcast on Italian national television, Reversocollettivo collaborates with journalist Nancy Porsia on the production of investigative reports focusing on the Israeli-Palestinian conflict.",
         body: [
@@ -74,7 +75,7 @@ export const services: Service[] = [
       {
         title: "Social Value",
         image: "/images/03_EYsv_heroimg.jpg",
-        video: "/video/03_EYsv_hero.mp4", // metti il nome vero del file
+        video: "/video/03_EYsv_hero.mp4", 
         client: 'EY',
         intro: "Social Value brings together EY’s commitment to supporting projects with a strong social impact, selected through an internal vote.",
         body: [
@@ -98,6 +99,7 @@ export const services: Service[] = [
         title: "Docs for NZZ",
         // TODO: aggiungere immagine di progetto e gallery (non presenti nel workbook).
         image: cover,
+        video: "/video/herovid_NZZ_web.mp4",
         client: 'NZZ Format',
         year: '2025–2026',
         intro: "Between 2025 and 2026, Reversocollettivo produced and carried out on-the-ground filming for four documentaries for NZZ Format, the documentary programme of the Swiss media organisation.",
@@ -109,7 +111,7 @@ export const services: Service[] = [
       {
         title: "ARTE Re:",
         // TODO: aggiungere immagine di progetto e gallery (non presenti nel workbook).
-        image: cover,
+        image: "/images/05_arte_heroimg.png",
         client: 'ARTE',
         intro: "For ARTE Re:, Reversocollettivo produced a reportage dedicated to the system of asylum seeker centres established by Italy in Albania.",
         body: [
