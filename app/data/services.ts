@@ -98,7 +98,7 @@ export const services: Service[] = [
       {
         title: "Docs for NZZ",
         // TODO: aggiungere immagine di progetto e gallery (non presenti nel workbook).
-        image: cover,
+        image: "/images/04_nzz_heroimg.png",
         video: "/video/herovid_NZZ_web.mp4",
         client: 'NZZ Format',
         year: '2025–2026',
