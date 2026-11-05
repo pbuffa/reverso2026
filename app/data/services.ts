@@ -1,4 +1,4 @@
-export type GalleryItem = string | { src: string; wide?: boolean }
+export type GalleryItem = string | { src: string; wide?: boolean; vertical?: boolean }
 
 export type Project = {
   title: string
@@ -34,6 +34,7 @@ export const services: Service[] = [
       {
         title: "VULC",
         image: "/images/01_vulc_mockup.jpg",
+        video: "/video/herovid_Vulc_web.mp4",
         client: 'Geopop',
         year: '2025',
         intro: "For Geopop, Reversocollettivo produced an 80-minute documentary dedicated to Italy’s active volcanoes and the communities that live in daily relationship with them.",
@@ -64,9 +65,6 @@ export const services: Service[] = [
         ],
         // TODO: sostituire le immagini ADC con versioni senza loghi (richiesto nel workbook).
         gallery: [
-          "/images/02_report_ADC_01.jpg",
-          "/images/02_report_ADC_02.jpg",
-          { src: "/images/02_report_ADC_03.jpg", wide: true },
           "/images/02_report_PDG_01.jpg",
           "/images/02_report_PDG_02.jpg",
           { src: "/images/02_report_PDG_03.jpg", wide: true }
@@ -97,7 +95,6 @@ export const services: Service[] = [
       },
       {
         title: "Docs for NZZ",
-        // TODO: aggiungere immagine di progetto e gallery (non presenti nel workbook).
         image: "/images/04_nzz_heroimg.png",
         video: "/video/herovid_NZZ_web.mp4",
         client: 'NZZ Format',
@@ -110,7 +107,6 @@ export const services: Service[] = [
       },
       {
         title: "ARTE Re:",
-        // TODO: aggiungere immagine di progetto e gallery (non presenti nel workbook).
         image: "/images/05_arte_heroimg.png",
         client: 'ARTE',
         intro: "For ARTE Re:, Reversocollettivo produced a reportage dedicated to the system of asylum seeker centres established by Italy in Albania.",
@@ -131,33 +127,44 @@ export const services: Service[] = [
     projects: [
       {
         title: "Sobremesa",
-        // TODO: aggiungere immagine di progetto e gallery.
-        image: "/images/01_sobrem_mockup.png",
+        video: "/video/herovid_sobremesa_web.mp4",
+        image: "/images/01_sobrem_heroimg.jpg",
         intro: "Sobremesa is a transnational cooperation project dedicated to the themes of food, migration and belonging, co-funded by the European Union.",
         body: [
           "Active across Greece, Portugal, the Basque Region of Spain and Italy, the project brings together artists, researchers, cultural practitioners and local communities to question dominant narratives around identity, integration and cultural heritage.",
           "Reversocollettivo is responsible for project’s communication and editorial direction. It oversees the definition of the narrative strategy, as well as the production and coordination of content, bringing different perspectives, practices and cultures into dialogue through editorial and audiovisual formats."
         ],
         gallery: [
-          { src: "/images/01_sobrem_adg_mockup.jpg", wide: true },
-          "/images/01_sobrem_pic02.jpg",
-          "/images/01_sobrem_pic03.jpg",
-          { src: "/images/01_sobrem_pic04.jpg", wide: true }
+          { src: "/images/01_sobrem_01.jpg", wide: true },
+          { src: "/images/01_sobrem_02.jpg", vertical: true },
+          { src: "/images/01_sobrem_03.png", vertical: true },
+          { src: "/images/01_sobrem_04.jpg" },
+          "/images/01_sobrem_06.png",
+          { src: "/images/01_sobrem_07.jpg", wide: true },
+          { src: "/images/01_sobrem_08.jpg", wide: true },
         ]
       },
       {
         title: "G124 x Renzo Piano",
-        image: "/images/02_G124.jpg",
+        image: "/images/02_G124_heroimg.jpg",
         client: 'G124',
         intro: "Since 2014, architect Renzo Piano has been developing G124, a permanent laboratory dedicated to the study and regeneration of several Italian peripheral areas.",
         body: [
           "The project, named after the number of the senator’s office at Palazzo Giustiniani, began with the architect’s appointment as Senator for Life. Piano uses his parliamentary salary to fund the work of young architects and urban planners who join the project on a yearly basis.",
           "For this project, Claudio Morelli oversaw the editorial productions, working on journalistic research, photographic production and photo editing."
+        ],
+        gallery: [
+          { src: "/images/02_G124_01.jpg", wide: true },
+          "/images/02_G124_02.jpg",
+          "/images/02_G124_03.jpg",
+          { src: "/images/02_G124_04.jpg", wide: true },
+          "/images/02_G124_05.jpg",
+          "/images/02_G124_06.jpg",
+          { src: "/images/02_G124_07.jpg", wide: true },
         ]
       },
       {
         title: "Visioni e Connessioni",
-        // TODO: aggiungere immagine di progetto e gallery.
         image: "/images/03_EYvc_mockup.png",
         client: 'EY',
         year: '2025',
@@ -220,24 +227,41 @@ export const services: Service[] = [
     projects: [
       {
         title: "VDnews",
-        image: cover,
+        image: "/images/01_vd_heroimg.jpg",
         intro: "VD is a digital media platform dedicated to the production of original stories, ranging from social reportage to lifestyle content.",
         body: [
           "Reversocollettivo oversaw the editorial direction of the project, from the brand launch phase to the definition and management of the editorial line throughout the entire production process.",
           "The work covered both original journalistic production and the development of branded content, ensuring editorial and narrative consistency across different formats and content."
         ],
         gallery: [
-          //{ src: "/images/01_vd_mockup02.png", wide: true }
+          { src: "/images/01_vd_img01.png", wide: true },
+          "images/01_vd_img02.png",
+          { src: "/images/01_vd_img03.png" },
+          "images/01_vd_img04.png",
+          { src: "/images/01_vd_img05.png" },
+         { src: "images/01_vd_img06.png", vertical: true },
+          { src: "/images/01_vd_img07.png", vertical: true },
+          "images/01_vd_img08.png",
+          "images/01_vd_img09.png",
+          { src: "/images/01_vd_img10.png", wide: true }
         ]
       },
       {
         title: "Slowmag",
-        image: "/images/02_slowmag_mockup.png",
+        image: "/images/02_slowmag_heroimg.png",
         client: "Slow Food Milano",
         intro: "Slowmag is a pilot communication project developed for Slow Food Milano.",
         body: [
           "The partner’s objective was to design an alternative communication channel capable of enhancing the spirit of the association and the sense of community that characterises its affiliated organisations and initiatives.",
           "Reversocollettivo created a fully-fledged magazine to collect the stories of Lombardy-based producers and restaurant owners who share the values promoted by Slow Food."
+        ],
+        gallery: [
+          { src: "/images/02_slowmag_01.png", vertical: true },
+          { src: "/images/02_slowmag_03.png", vertical: true },
+          { src: "/images/02_slowmag_02.png", wide: true },
+          { src: "/images/02_slowmag_04.png", vertical: true },
+          { src: "/images/02_slowmag_05.png", vertical: true },
+          { src: "/images/02_slowmag_06.png", vertical: true },
         ]
       },
       {
@@ -257,14 +281,38 @@ export const services: Service[] = [
       },
       {
         title: "Poster Media",
-        image: "/images/04_poster_mockup01.png",
+        image: "/images/04_Poster_heroimg.png",
+        video: "/video/herovid_Poster_web.mp4",
         intro: "Poster is an editorial project born from the idea and commitment of the founders of Reversocollettivo, aimed at offering a journalistic platform that combines product quality, innovation in the media world, and a commitment to independence.",
         body: [
           "Designed and built by journalists, Poster serves a singular interest: that of the public and its readers. It is a high-quality content production made up of stories, reportage, and original documentary videos. Innovative formats are paired with modern and flexible distribution methods, merging physical and digital elements. All of this is done without losing sight of or compromising the pursuit of knowledge and information dissemination, whether traditional or futuristic.",
           "Poster aims to build a community that connects journalism with localities, information with the public, and dissemination with knowledge."
         ],
         gallery: [
-          { src: "/images/04_poster_mockup02.png", wide: true }
+          { src: "/images/04_Poster_01.jpg", wide: true },
+          { src: "/images/04_Poster_02.jpg" },
+          { src: "/images/04_Poster_03.png", vertical: true },
+          { src: "/images/04_Poster_04.jpg", wide: true },
+          { src: "/images/04_Poster_05.jpg" },
+          { src: "/images/04_Poster_06.png", vertical: true },
+          { src: "/images/04_Poster_07.jpg",wide: true },
+          { src: "/images/04_Poster_08.jpg",vertical: true },
+          { src: "/images/04_Poster_09.png" , vertical: true },
+          { src: "/images/04_Poster_10.jpg", wide: true
+          },
+        ]
+      },
+      {
+        title: "Modern Local Media",
+        image: "/images/05_localmedia_heroimg.png",
+        intro: "La Seppia – Modern Local Media is a training and editorial experimentation project developed in Belmonte Calabro, as part of La Rivoluzione delle Seppie, an international, transdisciplinary community active in Calabria.",
+        body: [
+          "Tutored by Claudio Morelli, the workshop questions if a small editorial product can become a valuable service for local residents and visitors, while remaining sustainable.",
+          "The programme explores the role of information in shaping local communities as networks of relationships, identities and shared practices. The workshop is part of La Rivoluzione delle Seppie’s broader vision: a model of living and working collectively, built on the exchange of skills between international professionals and local communities, and on the reactivation of abandoned spaces. An approach that seeks alternatives to an increasingly specialised and competitive work culture."
+        ],
+        gallery: [
+          {src: "/images/05_localmedia_01.png", vertical: true},
+          {src: "/images/05_localmedia_02.png", vertical: true},
         ]
       }
     ]

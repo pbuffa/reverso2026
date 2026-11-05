@@ -14,25 +14,10 @@ const videoFailed = ref(false)
   <div>
     <div class="grid grid-cols-1 gap-2 md:grid-cols-2">
       <div>
-        <video
-          v-if="project.video && !videoFailed"
-          :src="project.video"
-          :poster="project.image"
-          class="aspect-[4/3] w-full object-cover"
-          autoplay
-          muted
-          loop
-          playsinline
-          @error="videoFailed = true"
-        />
-        <NuxtImg
-          v-else
-          :src="project.image"
-          :alt="project.title"
-          width="1000"
-          densities="x1"
-          class="aspect-[4/3] w-full object-cover"
-        />
+        <video v-if="project.video && !videoFailed" :src="project.video" :poster="project.image"
+          class="aspect-[4/3] w-full object-cover" autoplay muted loop playsinline @error="videoFailed = true" />
+        <NuxtImg v-else :src="project.image" :alt="project.title" width="1000" densities="x1"
+          class="aspect-[4/3] w-full object-cover" />
       </div>
 
       <div class="px-4 py-8 md:px-6 md:py-2">
@@ -47,17 +32,11 @@ const videoFailed = ref(false)
     </div>
 
     <div v-if="items.length" class="mt-2 grid grid-cols-1 gap-2 pb-6 md:grid-cols-2">
-      <NuxtImg
-        v-for="(it, i) in items"
-        :key="i"
-        :src="it.src"
-        :alt="`${project.title} ${i + 1}`"
-        :width="it.wide ? 1600 : 1000"
-        densities="x1"
-        class="aspect-[16/9] w-full object-cover"
-        :class="it.wide && 'md:col-span-2 md:aspect-[16/9]'"
-        loading="lazy"
-      />
+      <NuxtImg v-for="(it, i) in items" :key="i" :src="it.src" :width="it.wide ? 1600 : 1000" densities="x1"
+        class="w-full" :class="[
+          it.vertical ? 'h-auto self-start' : 'aspect-[4/3] object-cover',
+          it.wide && 'md:col-span-2 md:aspect-[4/3]',
+        ]" loading="lazy" />
     </div>
   </div>
 </template>
