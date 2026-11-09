@@ -32,8 +32,32 @@ export const services: Service[] = [
     ],
     projects: [
       {
+        title: "Sul Filo",
+        image: "/images/06_sulfilo_heroimg.png",
+        video: "/video/herovid_SulFilo_web.mp4",
+        client: 'Will Media',
+        year: '2026',
+        intro: "For Will Media, Reversocollettivo oversaw the executive production of Sul Filo, a 45-minute documentary made in collaboration with FISU — the Italian Forum for Urban Security, as part of an awareness campaign supporting the proposal to establish a National Fund for the Prevention of Youth Violence.",
+        body: [
+          "Focusing on the carrying and use of bladed weapons in urban contexts, the documentary places people and communities at its centre, exploring different ways of building environments capable of preventing marginalisation and violence.",
+          "Key figures from institutional and academic spheres engage in dialogue with the testimonies of students, school principals, third-sector professionals and grassroots communities, weaving together a collective narrative that brings different experiences and perspectives into relation.",
+          "Presented on 26 September at Future4Cities, Sul Filo is distributed through Will Media’s digital channels and accompanied by a series of screenings in several Italian cities, bringing the project into the very social and territorial contexts at the heart of the documentary.",
+          "Reversocollettivo oversaw the executive production of the project, coordinating its different stages and organising the filming across Naples, Bologna and Milan.",
+          "Directed by Claudio Morelli and Patrick Tombola, the production team followed the project from the initial organisation and planning stages through to its realisation, coordinating editorial, production and logistical requirements."
+        ],
+        gallery: [
+          "/images/06_sulfilo_01.png",
+          "/images/06_sulfilo_02.png",
+          { src: "/images/06_sulfilo_03.png", wide: true },
+          "/images/06_sulfilo_04.png",
+          "/images/06_sulfilo_05.png",
+          { src: "/images/06_sulfilo_06.png" },
+          { src: "/images/06_sulfilo_07.png" }
+        ]
+      },
+      {
         title: "VULC",
-        image: "/images/01_vulc_mockup.jpg",
+        image: "/images/01_vulc_heroimg.jpeg",
         video: "/video/herovid_Vulc_web.mp4",
         client: 'Geopop',
         year: '2025',
@@ -266,7 +290,7 @@ export const services: Service[] = [
       },
       {
         title: "Chef in Camicia",
-        image: "/images/03_cinc_mockup01.png",
+        image: "/images/03_cinc_heroimg.png",
         year: "2023",
         intro: "Chef in Camicia is a digital media platform focused on the production of editorial and branded content in the food sector.",
         body: [

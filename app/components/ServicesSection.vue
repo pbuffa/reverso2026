@@ -129,5 +129,12 @@ const isVideo = (src: string) => /\.(mp4|webm|mov)$/i.test(src)
                 <ProjectDetail :project="project" />
             </div>
         </BottomSheet>
+        <Teleport to="body">
+            <div v-if="serviceOpen && !projectOpen" class="fixed inset-x-0 top-0 z-[45]" :style="{ height: SHEET_TOP }"
+                aria-hidden="true" @click="serviceOpen = false" />
+
+            <div v-if="projectOpen" class="fixed inset-x-0 top-0 z-[55]" :style="{ height: PROJECT_TOP }"
+                aria-hidden="true" @click="projectOpen = false" />
+        </Teleport>
     </section>
 </template>
