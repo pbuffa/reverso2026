@@ -52,7 +52,7 @@ export const services: Service[] = [
           "/images/06_sulfilo_04.png",
           "/images/06_sulfilo_05.png",
           { src: "/images/06_sulfilo_06.png" },
-          { src: "/images/06_sulfilo_07.png" }
+          { src: "/images/06_sulfilo_07.jpg" }
         ]
       },
       {
